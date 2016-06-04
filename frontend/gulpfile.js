@@ -29,7 +29,7 @@ var webpackConfig = {
 }
 
 gulp.task('js:main', function() {
-  return gulp.src(JS_SRC)
+  gulp.src(JS_SRC)
   .pipe(webpack(webpackConfig))
   .pipe(gulp.dest(JS_DEST));
 });
@@ -43,7 +43,7 @@ gulp.task('js:vendor', function() {
 });
 
 gulp.task('css:main', function(){
-  return sass(CSS_SRC, { style: 'expanded', bundleExec: true })
+  sass(CSS_SRC, { style: 'expanded', bundleExec: true })
   .pipe(autoprefixer())
   .pipe(concatCss('main.css'))
   .pipe(gulp.dest(CSS_DEST));
