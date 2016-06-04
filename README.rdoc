@@ -1,0 +1,9 @@
+# React -> Rails
+* [Qiita記事](http://qiita.com/mugiwaranonoma/items/6da6d142f16a734af868)
+* Rails 4.2.x
+* React
+* ES6
+* Babel
+* Webpack
+* gulp
+* Material Design Lite
