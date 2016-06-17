@@ -12,6 +12,9 @@
 !/log/.keep
 /tmp
 
+# DB
+config/database.yml
+
 # frontend
 frontend/node_modules
 app/assets/javascripts/dist
