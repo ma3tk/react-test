@@ -15,6 +15,9 @@ class Article extends Component {
                     <input type="text" ref="update_text" name="update_box" />
                     <button onClick={(e) => this.updateArticleInfo(e)}>Update Info</button>
                 </div>
+                <div>
+                    <button onClick={(e) => this.fetchArticleInfo(e)}>Update Info With Ajax</button>
+                </div>
                 {this.props.children}
             </div>
         );
@@ -24,6 +27,11 @@ class Article extends Component {
         const { dispatch } = this.props;
         const updateText = this.refs.update_text.value;
         dispatch(ArticleActions.updateArticleInfo(updateText));
+    }
+
+    fetchArticleInfo(e) {
+        const { dispatch } = this.props;
+        dispatch(ArticleActions.fetchArticleInfo());
     }
 }
 

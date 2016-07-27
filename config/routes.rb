@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   root 'test#index'
   resources :test
 
+  get 'ajax' => 'test#ajax'
+
   # React のルーティングを使いたいので記載
   get '*path', to: 'test#index'
 
