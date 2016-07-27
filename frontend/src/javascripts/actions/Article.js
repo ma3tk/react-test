@@ -7,3 +7,19 @@ export function updateArticleInfo(updateText) {
     }
 }
 
+export function fetchArticleInfo() {
+    return function (dispatch) {
+        return fetch('/ajax', {
+            credentials: 'include',
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+            }
+        })
+            .then(response => response.json())
+            .then(json => {
+                dispatch(updateArticleInfo(json.title));
+            });
+    }
+}
+
