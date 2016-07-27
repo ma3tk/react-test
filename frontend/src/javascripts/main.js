@@ -4,6 +4,7 @@ import {Provider} from "react-redux"
 import { Router, Route, IndexRoute, browserHistory } from 'react-router'
 import { syncHistoryWithStore } from 'react-router-redux'
 import createStoreWithMiddleware from "./store/ConfigureStore"
+import App from "./components/App"
 import Article from "./components/article/index"
 
 const store = createStoreWithMiddleware();
@@ -14,7 +15,8 @@ ReactDOM.render(
     <Provider store={store}>
         <Router history={history}>
             <Route path="/">
-                <IndexRoute component={Article}/>
+                <IndexRoute component={App}/>
+                <Route path="/article" component={Article}/>
             </Route>
         </Router>
     </Provider>,

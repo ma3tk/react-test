@@ -1,5 +1,6 @@
 import React, {Component, PropTypes} from "react"
 import {bindActionCreators} from "redux"
+import { Link } from 'react-router'
 import {connect} from "react-redux"
 import ArticleInfo from "./info"
 import * as ArticleActions from "../../actions/Article"
@@ -8,6 +9,7 @@ class Article extends Component {
     render() {
         return (
             <div>
+                <Link to={"/"}>トップへ</Link>
                 <ArticleInfo />
                 <div>
                     <input type="text" ref="update_text" name="update_box" />

@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   root 'test#index'
   resources :test
+
+  # React のルーティングを使いたいので記載
+  get '*path', to: 'test#index'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
