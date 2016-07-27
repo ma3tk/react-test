@@ -1,14 +1,22 @@
-import React from 'react';
-import ReactDom from 'react-dom';
-import { Router, Route, Link, browserHistory } from 'react-router';
-import injectTapEventPlugin from "react-tap-event-plugin";
+import React from "react"
+import ReactDOM from "react-dom"
+import {Provider} from "react-redux"
+import { Router, Route, IndexRoute, browserHistory } from 'react-router'
+import { syncHistoryWithStore } from 'react-router-redux'
+import createStoreWithMiddleware from "./store/ConfigureStore"
+import Article from "./components/article/index"
 
-injectTapEventPlugin();
+const store = createStoreWithMiddleware();
 
-import TestPage from './components/test_page/index';
+const history = syncHistoryWithStore(browserHistory, store);
 
-ReactDom.render((
-  <Router history={browserHistory}>
-    <Route path='/' component={TestPage} />
-  </Router>
-),document.querySelector('#container'));
+ReactDOM.render(
+    <Provider store={store}>
+        <Router history={history}>
+            <Route path="/">
+                <IndexRoute component={Article}/>
+            </Route>
+        </Router>
+    </Provider>,
+    document.getElementById('container')
+);
